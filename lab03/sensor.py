@@ -6,7 +6,6 @@ excesses = 0
 max_record = 0
 sum = 0
 
-print(f'Введите {n} записей:')
 for i in range(n):
     record = input()
     all_records += 1
@@ -18,8 +17,8 @@ for i in range(n):
         max_record = max(record, max_record)
         sum += record
         
-print(f'Всего записей: {all_records}')
-print(f'Всего ошибок: {all_errors}')
-print(f'Всего превышений: {excesses}')
-print(f'Максимальное показание: {max_record:.1f}')
-print(f'Среднее показание: {sum/(all_records-all_errors):.1f}')
+print(all_records)
+print(all_errors)
+print(excesses)
+print(f'{max_record:.1f}')
+print(f'{sum/(all_records-all_errors):.1f}')
