@@ -3,7 +3,7 @@ n = int(input('Введите количество записей: '))
 all_records = 0
 all_errors = 0
 excesses = 0
-max_record = 0
+max_record = float('-inf')
 sum = 0
 
 for i in range(n):
