@@ -9,7 +9,7 @@ def winner(names: list[str], scores: list[float]) -> str:
 def average(scores: list[float]) -> float:
     if scores != []:
         avg = sum(scores) / len(scores)
-        return f'{avg:.2f}'
+        return round(avg, 2)
     return 0.0
 
 def ranking(names: list[str], scores: list[float]) -> list[str]:
