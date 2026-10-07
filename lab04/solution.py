@@ -11,3 +11,14 @@ def average(scores: list[float]) -> float:
         avr = sum(scores) / len(scores)
         return f'{avr:.2f}'
     return 0.0
+
+def ranking(names: list[str], scores: list[float]) -> list[str]:
+    data = [(names[i], scores[i]) for i in range(len(names))]
+    data.sort(reverse = True, key = lambda elem: elem[1])
+    sorted_names = [el[0] for el in data]
+    return sorted_names
+
+if __name__ == "__main__":
+    names =  ["Аня", "Боря", "Вика"]
+    scores = [7.0,   9.0,    9.0]
+    print(winner(names, scores), average(scores), ranking(names, scores))
