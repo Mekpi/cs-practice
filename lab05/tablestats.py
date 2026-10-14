@@ -1,12 +1,12 @@
 def read_rows(lines):
-    lines = lines.copy()
-    header = lines[0].strip().split(',')
-    lines.pop(0)
+    head_flag = False
     rows = []
     for line in lines:
         row = {}
         line = line.strip().split(',')
-
+        if not head_flag:
+            header = line
+            head_flag = True
         if len(header) != len(line):
             continue
         for j in range(len(header)):
