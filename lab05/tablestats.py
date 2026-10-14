@@ -29,7 +29,7 @@ def total_minutes(rows, kind):
     for row in rows:
         type = row['тип']
         if type == kind:
-            minutes += float(row['минуты'])
+            minutes += float(row['минуты'].replace(',', '.'))
     return round(minutes, 1)
 
 
@@ -46,7 +46,10 @@ if __name__ == "__main__":
         lines = f.readlines()
     rows = read_rows(lines)
     counts = count_types(rows)
-    errors = total_minutes(rows, 'ошибка')
+    errors = total_minutes([{
+        'тип': "ошибка",
+        "минуты": "3,3234"
+    }], 'ошибка')
     print(rows)
     print(counts)
     print(errors)
