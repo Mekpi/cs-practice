@@ -30,7 +30,7 @@ def total_minutes(rows, kind):
         type = row['тип']
         if type == kind:
             minutes += float(row['минуты'].replace(',', '.'))
-    return round(minutes, 1)
+    return f'{minutes:.1f}'
 
 
 def to_csv(counts):
