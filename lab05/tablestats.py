@@ -19,16 +19,16 @@ def read_rows(lines):
 def count_types(rows):
     types = {}
     for row in rows:
-        type = row['тип']
-        types[type] = types.get(type, 0) + 1
+        rtype = row['тип']
+        types[rtype] = types.get(rtype, 0) + 1
     return types
 
 
 def total_minutes(rows, kind):
     minutes = 0.0
     for row in rows:
-        type = row['тип']
-        if type == kind:
+        rtype = row['тип']
+        if rtype == kind and type(row['минуты']) in ['int', 'float']:
             minutes += float(row['минуты'].replace(',', '.'))
     return float(f'{minutes:.1f}')
 
@@ -48,7 +48,7 @@ if __name__ == "__main__":
     counts = count_types(rows)
     errors = total_minutes([{
         'тип': "ошибка",
-        "минуты": "3,3234"
+        "минуты": "fasd"
     }], 'ошибка')
     print(rows)
     print(counts)
