@@ -1,5 +1,8 @@
 def read_rows(lines):
-    header = lines.readline().strip().split(',')
+    lines = lines.readlines()
+    lines = lines.copy()
+    header = lines[0].strip().split(',')
+    lines.pop(0)
     rows = []
     for line in lines:
         row = {}
