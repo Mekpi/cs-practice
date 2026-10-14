@@ -28,7 +28,11 @@ def total_minutes(rows, kind):
     minutes = 0.0
     for row in rows:
         rtype = row['тип']
-        if rtype == kind and type(row['минуты']) in ['int', 'float']:
+        if rtype == kind:
+            try: 
+                float(row['минуты'])
+            except:
+                continue
             minutes += float(row['минуты'].replace(',', '.'))
     return float(f'{minutes:.1f}')
 
