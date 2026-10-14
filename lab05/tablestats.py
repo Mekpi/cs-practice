@@ -7,6 +7,7 @@ def read_rows(lines):
         if not head_flag:
             header = line
             head_flag = True
+            continue
         if len(header) != len(line):
             continue
         for j in range(len(header)):
