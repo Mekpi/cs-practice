@@ -1,5 +1,4 @@
 def read_rows(lines):
-    lines = lines.readlines()
     lines = lines.copy()
     header = lines[0].strip().split(',')
     lines.pop(0)
@@ -35,14 +34,16 @@ def total_minutes(rows, kind):
 
 def to_csv(counts):
     csv_str = 'тип,количество\n'
-    for type, qnt in counts.items():
+    counts = sorted(counts.items(), key=lambda el: el[0])
+    for type, qnt in counts:
         csv_str += f'{type},{qnt}\n'
     return csv_str
 
 
 if __name__ == "__main__":
     with open('events.csv', 'r', encoding='utf-8') as f:
-        rows = read_rows(f)
+        lines = f.readlines()
+    rows = read_rows(lines)
     counts = count_types(rows)
     errors = total_minutes(rows, 'ошибка')
     print(rows)
