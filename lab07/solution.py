@@ -23,9 +23,9 @@ def column_range(matrix, column):
     arr = np.asarray(matrix)
     col = arr[:, column]
     res = np.max(col) - np.min(col)
-    return res
+    return float(res)
 
 print(reshape_rows([], 3))
 print(block([[1, 2, 3], [4, 5, 6], [7, 8, 9]], [0], [1]))
 print(column_means([[1.5, 2.5]]))
-#print(column_range([], 1) )
+print(column_range([[1, 2], [5, 7]], 1))
