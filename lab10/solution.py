@@ -53,4 +53,4 @@ print(tensor_channel_mean(m))
 def point_distance(first, second):
     first = np.asarray(first).astype(np.float32)
     second = np.asarray(second).astype(np.float32)
-    return np.linalg.norm(first - second)
+    return float(np.linalg.norm(first - second))
